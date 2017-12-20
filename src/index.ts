@@ -1,10 +1,10 @@
 import { GraphQLServer } from 'graphql-yoga'
-import { importSchema } from 'graphql-import'
-import { Graphcool } from 'graphcool-binding'
+import * as fs from 'fs'
 import { Context } from './utils'
+
 import { Binding } from './generated/bindings'
 
-const typeDefs = importSchema('./src/schema.graphql')
+const typeDefs = fs.readFileSync('./src/generated/schema.graphql', 'utf-8')
 const resolvers = {
   Query: {
     feed(parent, args, ctx: Context, info) {

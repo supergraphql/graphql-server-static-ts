@@ -1,9 +1,10 @@
 {
   "name": "graphql-server-static",
   "scripts": {
-    "generate:schema": "graphql bundle -p database -o ./src/generated/database.graphql -f",
+    "generate:dbschema": "graphql bundle -p database -o ./src/generated/database.graphql -f",
+    "generate:schema": "graphql bundle -p app -o ./src/generated/schema.graphql -f",
     "generate:binding": "graphql bindings ./src/generated/database.graphql -o ./src/generated/bindings.ts --ts -f",
-    "build": "npm run generate:schema && npm run generate:binding",
+    "build": "npm run generate:dbschema && npm run generate:schema && npm run generate:binding",
     "start": "ts-node src/index.ts"
   },
   "dependencies": {

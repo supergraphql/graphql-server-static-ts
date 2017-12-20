@@ -1,0 +1,19 @@
+type Query {
+  feed: [Post!]!
+}
+
+type Mutation {
+  createDraft(title: String!, text: String): Post
+  publish(id: ID!): Post
+}
+
+type Post implements Node {
+  id: ID!
+  isPublished: Boolean!
+  title: String!
+  text: String!
+}
+
+interface Node {
+  id: ID!
+}
