@@ -1,0 +1,20 @@
+{
+  "name": "graphql-server-static",
+  "scripts": {
+    "generate:schema": "graphql bundle -p database -o ./src/generated/database.graphql -f",
+    "generate:binding": "graphql bindings ./src/generated/database.graphql -o ./src/generated/bindings.ts --ts -f",
+    "build": "npm run generate:schema && npm run generate:binding",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "graphcool-binding": "^0.2.4",
+    "graphql-cli-binding": "^0.1.2",
+    "graphql-cli-bundle": "^0.1.2",
+    "graphql-import": "^0.1.8",
+    "graphql-yoga": "^0.4.3"
+  },
+  "devDependencies": {
+    "ts-node": "4.0.2",
+    "typescript": "2.6.2"
+  }
+}
